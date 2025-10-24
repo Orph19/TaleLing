@@ -28,6 +28,8 @@ For learning a language with a different writing system (like Chinese or Japanes
 
 # TaleLing
 
+[![TaleLing Demo](https://img.youtube.com/vi/hy5QkUKofqo/0.jpg)](https://www.youtube.com/watch?v=hy5QkUKofqo)
+
 I created TaleLing as a resource that includes all of that in one. This repository contains all the code for TaleLing. It started as a project for a hackathon on [Devpost](https://devpost.com/software/tale-ling). After that, I decided to make it real and see if it could help anyone. From the Devpost project to the current version, it was a wide journey.
 
 ## No code experience
