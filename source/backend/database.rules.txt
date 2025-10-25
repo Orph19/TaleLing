@@ -1,0 +1,48 @@
+// Firestore rules:
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Stories: only allow each authenticated user to read their own generated story requests
+    match /stories/{id} {
+      allow read: if resource.data.uid == request.auth.uid;
+    }
+		
+    match /images/{id} {
+      allow read: if resource.data.uid == request.auth.uid;
+    }
+    
+    // Users: only allow each authenticated user to read their own document
+    match /users/{uid} {
+      allow read: if request.auth.uid == uid;
+    }
+    
+    match /dictionary/{documentId} {
+      allow read: if request.auth.uid != null;
+      allow write: if false; // Deny all write operations
+    }
+  }
+}
+
+// Storage rules:
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // This is the only rule needed. It makes all images inside the
+    // stories/ directory publicly viewable by anyone on the internet,
+    // allowing the public URLs to work.
+    // All write access is blocked by default, but your Admin SDK bypasses this.
+    match /stories/{storyId}/covers/{requestId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+                    && request.resource.size < 5 * 1024 * 1024
+                    && request.resource.contentType.matches('image/.*');
+    	allow update: if request.auth != null
+      && request.resource.size == resource.size &&
+    	request.resource.md5Hash == resource.md5Hash;
+                
+    }
+  }
+}
