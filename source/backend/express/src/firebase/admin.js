@@ -7,7 +7,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
-const serviceAccount = require('../../admin-sdk-example.json');
+const serviceAccount = require('../../admin-sdk.json');
 
 if (!admin.apps.length) {
     if (process.env.NODE_ENV === 'development') {
