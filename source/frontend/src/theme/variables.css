@@ -1,0 +1,82 @@
+/* src/theme/variables.css */
+
+/*
+ * =================================================================
+ *  THEMING SYSTEM - The Single Source of Truth for All Colors
+ * =================================================================
+ */
+
+:root {
+  /*
+   * FONT & LAYOUT VARIABLES (These rarely change between themes)
+   */
+  --page-bg: #fbfdff;
+  --muted: #6b7280;
+  --brand-a: #0ea5a4;
+  --brand-b: #7c3aed;
+  --text-dark: #071124;
+  --radius: 18px;
+  --font-primary: 'Lora', serif;
+  --font-secondary: 'Nunito Sans', sans-serif;
+  --border-radius-soft: 15px;
+}
+
+/*
+ * =================================================================
+ *  LIGHT THEME (DEFAULT)
+ * =================================================================
+ */
+body, body.theme-light {
+  /* --- Raw Color Palette (For reference) --- */
+  --raw-white: #FFFFFF;
+  --raw-off-white: #F9FAFB;
+  --raw-dark-gray: #111827;
+  --raw-gray: #6B7281;
+  --raw-light-gray-border: #E5E7EB;
+  --raw-indigo: #4F46E5;
+  --raw-violet: #7C3AED;
+
+  /* --- Semantic Mapping (Components use THESE variables) --- */
+  --color-brand-primary: var(--raw-indigo);
+  --color-brand-secondary: var(--raw-violet);
+  
+  --color-background-base: var(--raw-off-white);
+  --color-background-surface: var(--raw-white); /* For cards, modals etc. */
+
+  --color-text-heading: var(--raw-dark-gray);
+  --color-text-body: var(--raw-gray);
+  --color-text-on-brand: var(--raw-white); /* Text on top of a primary button */
+
+  --color-border-subtle: var(--raw-light-gray-border);
+
+  --shadow-color-rgb: 79, 70, 229; /* For creating rgba() shadows */
+}
+
+
+/*
+ * =================================================================
+ *  DARK THEME
+ * =================================================================
+ */
+body.theme-dark {
+  /* --- Raw Color Palette (For reference) --- */
+  --raw-deep-indigo: #161B29;
+  --raw-cyan: #00F5D4;
+  --raw-purple: #9B5DE5;
+  --raw-light-blue-gray: #A9B4D2;
+
+  /* --- Semantic Mapping (Components use THESE variables) --- */
+  --color-brand-primary: var(--raw-cyan);
+  --color-brand-secondary: var(--raw-purple);
+  
+  --color-background-base: var(--raw-deep-indigo);
+  --color-background-surface: #1E253A; /* A slightly lighter surface for dark mode */
+
+  --color-text-heading: var(--raw-white);
+  --color-text-body: var(--raw-light-blue-gray);
+  --color-text-on-brand: var(--raw-deep-indigo); /* Text on top of a cyan button */
+  
+  --color-border-subtle: #3A4468;
+
+  --shadow-color-rgb: 0, 245, 212; /* For creating rgba() shadows */
+}

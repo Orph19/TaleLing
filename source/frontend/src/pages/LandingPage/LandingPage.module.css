@@ -1,0 +1,111 @@
+/* =================================================================
+   LANDING PAGE: MODERN LIGHT THEME
+================================================================= */
+
+/* =================================================================
+   MAIN PAGE CONTAINER & SUBTLE BACKGROUND
+================================================================= */
+.landingContainer {
+  /* The new off-white background color */
+  background-color: var(--color-background-light);
+  
+  /* Positioning for the subtle background blobs */
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 
+ * The "Gradient Blobs" have been re-tuned for a light background.
+ * They are now EXTREMELY subtle, providing just a hint of color
+ * to prevent the page from feeling flat.
+ */
+
+.landingContainer::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--color-accent-violet), transparent 70%);
+  /* Drastically reduced opacity for a very subtle effect */
+  opacity: 0.05; 
+  filter: blur(120px);
+}
+
+.landingContainer::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -20%;
+  right: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, var(--color-accent-indigo), transparent 70%);
+  /* Drastically reduced opacity for a very subtle effect */
+  opacity: 0.08;
+  filter: blur(120px);
+}
+
+/* =================================================================
+   PERSISTENT HEADER (Modern Light Style)
+================================================================= */
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.toolbar {
+  /* A semi-transparent white background for the "frosted glass" effect */
+  --background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  /* A subtle border to separate the header from the content below */
+  --border-width: 0 0 1px 0;
+  --border-color: var(--color-border-light);
+}
+
+.appTitle {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  /* Use the new dark text color for high readability */
+  color: var(--color-text-primary-light);
+}
+
+/* --- Header Button Styles --- */
+.signInButtonHeader {
+  /* A subtle background fill on hover */
+  --background-hover: rgba(79, 70, 229, 0.05); /* 5% opacity indigo */
+  transition: background-color 0.3s ease;
+}
+.signInButtonHeader::part(native) {
+  /* Use the new indigo accent color for text and border */
+  color: var(--color-accent-indigo);
+  border-color: var(--color-accent-indigo);
+  font-weight: 700;
+  opacity: 1;
+  font-family: var(--font-secondary);
+}
+
+/* Mobile Icon Button */
+.signInButtonHeaderIcon {
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-indigo);
+  transition: background-color 0.3s ease;
+}
+.signInButtonHeaderIcon:hover {
+  background-color: rgba(79, 70, 229, 0.05); /* 5% opacity indigo */
+}
+
+.googleIcon {
+  width: 18px;
+  height: 18px;
+}

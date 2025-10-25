@@ -1,0 +1,33 @@
+.headline {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 3.2vw, 3.2rem);
+  line-height: 1.29;
+  color: var(--text-dark);
+}
+.headline em {
+  font-style: italic;
+}
+
+.subheading {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-secondary);
+  font-size: 1.27rem;
+  line-height: 1.55;
+}
+
+.cta {
+  margin-top: 0.7rem;
+  width: min(420px, 78%);
+  height: 56px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
+  color: white;
+  box-shadow: 0 12px 30px rgba(12,74,110,0.08);
+  border: none;
+  cursor: pointer;
+}

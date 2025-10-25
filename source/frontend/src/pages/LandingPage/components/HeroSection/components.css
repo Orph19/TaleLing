@@ -1,0 +1,54 @@
+.tappableWrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.tappable {
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+.definitionCard {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 12px);
+  transform: translateX(-50%) translateY(6px) scale(0.98);
+  min-width: 300px;
+  max-width: 390px;
+  min-height: 200px;
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 12px 32px rgba(2,6,23,0.06);
+  border: 1px solid rgba(2,6,23,0.03);
+  color: var(--muted);
+  opacity: 0;
+  z-index: 5;
+  line-height: 2.5;
+  text-align: left;
+  font-size: 1em;
+}
+
+.definitionCard::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: calc(50% - 8px);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ffffff;
+  filter: drop-shadow(0 -1px 0 rgba(0,0,0,0.02));
+  opacity: 0.98;
+}
+
+.definitionText {
+  display: block;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}

@@ -1,0 +1,21 @@
+/* 
+  The main container that will wrap our content and footer.
+  It takes the full height of its parent (the IonContent scroll area).
+  It uses a column-based flex layout.
+*/
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 130%;
+}
+
+/* 
+  This is the magic rule.
+  We target the direct child of our layout that is NOT the footer.
+  'flex: 1' (or 'flex-grow: 1') tells this element (your main content)
+  to expand and take up ALL available vertical space, pushing the 
+  footer down to the bottom.
+*/
+.layoutContainer > :not(footer) {
+  flex: 1;
+}

@@ -1,0 +1,18 @@
+/* src/components/StoryList/StoryList.module.css */
+.storyGrid {
+  display: grid;
+  
+  /* --- THIS IS THE FINAL FIX --- */
+  /* We define columns of a fixed size (250px) and remove the `1fr` unit.
+     This stops the grid track itself from stretching to fill the container. */
+  grid-template-columns: repeat(auto-fit, 250px);
+  
+  gap: 24px;
+  padding: 24px;
+  align-items: start;
+
+  /* --- THIS IS THE FINAL FIX --- */
+  /* Now that the grid tracks have a fixed width, `justify-content` will
+     correctly center the entire group of cards horizontally on the page. */
+  justify-content: center;
+}

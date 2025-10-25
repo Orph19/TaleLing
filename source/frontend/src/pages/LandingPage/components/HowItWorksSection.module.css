@@ -1,0 +1,207 @@
+/* =================================================================
+   HOW IT WORKS SECTION (THEME-AWARE & MODERN)
+================================================================= */
+.howItWorksSection {
+  padding: 6rem 1.5rem;
+  text-align: center;
+  /* The color is now handled by the child elements using semantic variables */
+}
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 4rem;
+  font-weight: 700;
+  /* UPDATED: Uses the semantic variable for headings */
+  color: var(--color-text-heading);
+}
+
+/* =================================================================
+   DESKTOP LAYOUT STYLES (> 992px)
+================================================================= */
+.desktopLayout { display: none; }
+
+@media (min-width: 992px) {
+  .desktopLayout { display: block; }
+
+  .stepList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .stepItem {
+    background: transparent;
+    border: none;
+    /* UPDATED: A subtle border for the light theme */
+    border-left: 3px solid var(--color-border-subtle);
+    padding: 1.5rem 2rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-radius: var(--border-radius-soft); /* Added for a softer hover effect */
+  }
+  .stepItem:hover {
+    /* UPDATED: A subtle background tint on hover */
+    background: rgba(var(--shadow-color-rgb), 0.05);
+  }
+  .stepItem.active {
+    /* UPDATED: Uses the primary brand color for the active state */
+    border-left-color: var(--color-brand-primary);
+    background: rgba(var(--shadow-color-rgb), 0.03);
+  }
+
+  .stepNumber {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* UPDATED: Uses the body text color */
+    color: var(--color-text-body);
+    transition: color 0.3s ease;
+  }
+  .stepItem.active .stepNumber {
+    /* UPDATED: Uses the primary brand color */
+    color: var(--color-brand-primary);
+  }
+
+  .stepTitle {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    /* UPDATED: Uses the heading text color */
+    color: var(--color-text-heading);
+  }
+
+  .viewerContainer {
+    position: sticky;
+    top: 100px; /* Adjusted for better alignment */
+  }
+  .imageFrame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    position: relative;
+    border-radius: var(--border-radius-soft);
+    overflow: hidden;
+    /* UPDATED: A clean, modern shadow for the light theme */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  .stepImageWrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  .descriptionFrame {
+    margin-top: 1.5rem;
+    position: relative;
+    /* UPDATED: Uses the surface color to pop off the background */
+    background-color: var(--color-background-surface);
+    border-radius: var(--border-radius-soft);
+    padding: 1.5rem 2rem;
+    /* UPDATED: Uses the subtle border color */
+    border: 1px solid var(--color-border-subtle);
+    min-height: 8em;
+  }
+  .descriptionFrame p {
+    font-size: 1.1rem; /* Slightly adjusted for balance */
+    line-height: 1.7;
+    /* UPDATED: Uses the body text color */
+    color: var(--color-text-body);
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem 2rem;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    text-align: left;
+  }
+  .stepImageWrapper.visible, .descriptionFrame p.visible {
+    opacity: 1;
+  }
+}
+
+/* =================================================================
+   MOBILE LAYOUT STYLES ("Accordion")
+================================================================= */
+.mobileLayout { display: block; }
+
+@media (min-width: 992px) {
+  .mobileLayout { display: none; }
+}
+
+.mobileStep {
+  /* UPDATED: Uses the subtle border color */
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.mobileStepHeader {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mobileStepContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  padding: 0 0.5rem;
+}
+.mobileStep.open .mobileStepContent {
+  max-height: 1000px;
+  padding: 0 0.5rem 1.5rem;
+}
+
+.mobileImageWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: calc(var(--border-radius-soft) - 5px);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.mobileImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mobileStepContent p {
+  /* UPDATED: Uses the body text color */
+  color: var(--color-text-body);
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* --- Animated Plus/Minus Icon --- */
+.plusIcon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.plusIcon::before, .plusIcon::after {
+  content: '';
+  position: absolute;
+  /* UPDATED: Uses the primary brand color */
+  background-color: var(--color-brand-primary);
+  transition: transform 0.3s ease-in-out;
+}
+.plusIcon::before {
+  top: 50%; left: 0; width: 100%; height: 2px; margin-top: -1px;
+}
+.plusIcon::after {
+  top: 0; left: 50%; width: 2px; height: 100%; margin-left: -1px;
+}
+.mobileStep.open .plusIcon::after {
+  transform: rotate(90deg);
+}
+.mobileStep.open .plusIcon::before {
+  transform: rotate(180deg);
+}

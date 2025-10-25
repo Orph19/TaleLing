@@ -1,0 +1,38 @@
+/*
+ * Base styling for the arrow element of the FloatingPopup component.
+ * This CSS turns a simple <div> into a triangle shape and positions it.
+*/
+.floating-popup-arrow {
+  position: absolute;
+  width: 8px; /* The size of the arrow's base */
+  height: 8px;
+  background: #fff; /* Must match the background of the popup */
+  transform: rotate(45deg);
+}
+/* --- DYNAMIC BORDER LOGIC --- */
+
+/* When popup is ABOVE the word (arrow points DOWN) */
+/* The top and left borders of the rotated square are the visible ones. */
+[data-placement^='bottom'] > .floating-popup-arrow {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+/* When popup is BELOW the word (arrow points UP) */
+/* The bottom and right borders of the rotated square are the visible ones. */
+[data-placement^='top'] > .floating-popup-arrow {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+/* When popup is to the LEFT of the word (arrow points RIGHT) */
+[data-placement^='right'] > .floating-popup-arrow {
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+/* When popup is to the RIGHT of the word (arrow points LEFT) */
+[data-placement^='left'] > .floating-popup-arrow {
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}

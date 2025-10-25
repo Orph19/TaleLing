@@ -1,0 +1,30 @@
+/* src/components/StoryDetailsView/StoryDetailsView.module.css */
+.imageContainer {
+  width: 100%;
+  max-width: 500px; /* Constrain max width on larger screens */
+  margin: 0 auto 16px auto; /* Center the container and add space below */
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e0e0e0;
+}
+
+.contentBlock {
+  margin-bottom: 24px;
+}
+
+.description {
+  color: var(--ion-color-medium);
+  white-space: pre-wrap; /* Respects newlines in the description text */
+}
+
+.generationSection {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ion-color-step-150, #d7d8da);
+  /* --- THIS IS THE FIX --- */
+  /* Ensures the container has a minimum height and doesn't collapse,
+     making the button and other tools visible. */
+  min-height: 100px;
+}

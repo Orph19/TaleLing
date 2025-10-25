@@ -1,0 +1,41 @@
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0; /* Light gray background while loading */
+  width: 100%;
+  height: 100%; /* The parent container will control the size/aspect-ratio */
+}
+
+/* The tiny, blurry placeholder image */
+.imagePlaceholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 1;
+  transition: opacity 0.4s ease-out;
+}
+
+/* The full-quality image that loads on top */
+.fullImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.4s ease-in;
+}
+
+/* When the full image loads, we fade it in... */
+.fullImage.loaded {
+  opacity: 1;
+}
+
+/* ...and if the full image is loaded, we fade the placeholder out. */
+.fullImage.loaded ~ .imagePlaceholder {
+  opacity: 0;
+}

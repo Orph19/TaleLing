@@ -1,0 +1,7 @@
+{
+  "name": "TaleLing",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

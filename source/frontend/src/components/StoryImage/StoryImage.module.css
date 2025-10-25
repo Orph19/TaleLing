@@ -1,0 +1,45 @@
+/*
+ * Styles for the StoryImage component.
+ * Using CSS Modules ensures these class names are locally scoped.
+ */
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  display: block;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* A modern, neutral background color for the placeholder */
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  
+  /* Ensures the container itself clips to the parent's border-radius */
+  overflow: hidden;
+}
+
+.initials {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem; /* Responsive font size */
+  font-weight: 600;
+  color: #ffffff;
+  
+  /* Adds a subtle text shadow to make the letters pop */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  
+  /* Prevents the user from accidentally selecting the text */
+  user-select: none;
+}
+
+/* On larger screens (like in the details view), make the initials bigger */
+@media (min-width: 600px) {
+  .initials {
+    font-size: 4rem;
+  }
+}

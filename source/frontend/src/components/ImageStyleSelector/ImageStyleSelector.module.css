@@ -1,0 +1,12 @@
+.chipContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Provides spacing between chips */
+  justify-content: center; /* Centers the chips in their container */
+  margin-bottom: 16px; /* Space below the selector */
+}
+
+.chip {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}

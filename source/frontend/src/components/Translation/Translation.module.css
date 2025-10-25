@@ -1,0 +1,18 @@
+.meaningsList {
+  /* This creates the bullet points. 'disc' is the standard filled circle. */
+  list-style-type: disc;
+
+  /* This restores the indentation, making it look like a proper list. */
+  padding-left: 20px;
+  
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.meaningsList li {
+  padding-bottom: 4px;
+}
+
+.meaningsList li:last-child {
+  padding-bottom: 0;
+}

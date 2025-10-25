@@ -1,0 +1,44 @@
+/* StoryContainer.module.css */
+
+.storyContainer {
+  /* Your desired styles */
+  font-size: 1.30rem; /* ~20px */
+  line-height: 2.5;
+  max-width: 1110px;
+  margin: 3rem auto;
+  
+  /* Properties moved from the inline style prop */
+  white-space: pre-wrap; /* Preserves paragraphs */
+  text-align: left;
+  color: #111827;
+  font-family: 'Lora', sans-serif; /* Using serif for story text */
+  padding: 2rem 2.5rem;
+  letter-spacing: 0.2px;
+
+  /* Other styles */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  cursor: default;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .storyContainer {
+    margin: 0.8 rem;
+    padding: 1rem;
+    font-size: 1.1rem; /* ~17.5px */
+    line-height: 2.5;
+  }
+}
+
+/* Add a transition for a smooth effect on the base span */
+.storyContainer span {
+  transition: background-color 0.09s ease-in-out;
+}
+
+.storyContainer span:hover {
+  cursor: default;
+  background-color: rgba(0, 123, 255, 0.051); /* A very light, transparent blue */
+  border-radius: 3px; /* Optional: gives a slightly softer look */
+}

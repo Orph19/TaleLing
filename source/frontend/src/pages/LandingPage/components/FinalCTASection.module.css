@@ -1,0 +1,89 @@
+/* =================================================================
+   FINAL CTA SECTION STYLING (THEME-AWARE & MODERN)
+================================================================= */
+.finalCtaSection {
+  /* This section sits cleanly on the main page background for a seamless flow */
+  padding: 8rem 1.5rem;
+  text-align: center;
+  /* Removed the gradient and clip-path for a modern, clean aesthetic */
+}
+
+.finalCtaSection h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(2.2rem, 6vw, 3.2rem); /* Slightly toned down for balance */
+  /* UPDATED: Uses the semantic variable for headings */
+  color: var(--color-text-heading);
+  margin-bottom: 2.5rem; /* Increased space between text and button */
+  max-width: 650px; /* Prevents the line from getting too long on wide screens */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.2;
+}
+
+
+/* =================================================================
+   FINAL CTA BUTTON (USING DEFINITIVE IONIC FIX)
+================================================================= */
+
+/* --- Step 1: The Host Element (.finalCtaButton) --- */
+.finalCtaButton {
+  /* Define styles as CSS variables using semantic names */
+  --background: var(--color-brand-primary);
+  --background-hover: var(--color-brand-secondary);
+  --color: var(--color-text-on-brand);
+  --padding-start: 2.5rem;
+  --padding-end: 2.5rem;
+  --border-radius: 50px;
+  
+  /* Define shadows using the theme's RGB shadow variable */
+  --box-shadow: 0 4px 14px 0 rgba(var(--shadow-color-rgb), 0.3);
+  --box-shadow-hover: 0 8px 25px 0 rgba(var(--shadow-color-rgb), 0.35);
+
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  /* Made slightly larger to feel like the "final boss" button */
+  font-size: 1.2rem;
+  height: 60px;
+  transition: transform 0.3s ease;
+  outline: none;
+}
+
+/* --- Step 2: Styling the Inner, Native Button ::part(native) --- */
+.finalCtaButton::part(native) {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  border: none;
+}
+
+/* --- Step 3: Handling the Hover State --- */
+.finalCtaButton:hover {
+  transform: translateY(-5px); /* A more significant lift */
+  --background: var(--background-hover);
+  --box-shadow: var(--box-shadow-hover);
+}
+
+/* --- Step 4: Handling the Focus State --- */
+.finalCtaButton:focus, .finalCtaButton:focus-visible {
+  outline: none;
+}
+.finalCtaButton:focus::part(native), 
+.finalCtaButton:focus-visible::part(native) {
+  outline: none;
+}
+
+
+/* =================================================================
+   RESPONSIVE OVERRIDES
+================================================================= */
+@media (max-width: 768px) {
+  .finalCtaSection {
+    padding: 5rem 1rem;
+  }
+
+  .finalCtaButton {
+    height: 55px;
+    font-size: 1.1rem;
+  }
+}

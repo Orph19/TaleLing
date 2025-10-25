@@ -1,0 +1,15 @@
+@media (max-width: 991px) {
+  .heroWrapper { grid-template-columns: 1fr; gap: 1.25rem; }
+  .leftCard { margin-right: 0; padding: 1rem; border-radius: 14px; }
+  .leftInner { width: 100%; align-items: center; text-align: center; }
+  .headline { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .subheading { font-size: 0.98rem; }
+  .cta { width: 100%; max-width: 100%; margin-top: 0.6rem; }
+  .visualFrame { transform: none; max-width: 100%; padding: 1rem; border-radius: 14px; }
+}
+
+@media (min-width: 1700px) {
+  .leftCard { margin-right: -16%; }
+  .heroWrapper { grid-template-columns: 0.9fr 1.4fr; gap: 6vw; }
+  .visualFrame { transform: translateX(8%); max-width: 1080px; }
+}

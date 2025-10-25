@@ -1,0 +1,23 @@
+/*
+ * Custom styling for the Home Page Floating Action Button
+ * Makes it larger and moves it up from the bottom edge.
+*/
+.home-fab {
+  /* --- Positioning --- */
+  /* Add more space from the bottom and right edges */
+  margin-bottom: 25px;
+  margin-right: 15px;
+}
+
+.home-fab ion-fab-button {
+  /* --- Sizing the Button --- */
+  /* Use CSS variables to control the size. The default is 56px. */
+  --width: 64px;
+  --height: 64px;
+}
+
+.home-fab ion-icon {
+  /* --- Sizing the Icon --- */
+  /* Make the icon slightly larger to match the new button size */
+  font-size: 32px;
+}

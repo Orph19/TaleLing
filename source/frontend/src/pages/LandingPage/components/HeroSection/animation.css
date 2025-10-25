@@ -1,0 +1,123 @@
+.animationStage {
+  position: relative;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  max-width: none !important;
+  display: flex;
+  align-items: center;   /* centers vertically */
+  justify-content: center;
+  overflow: visible; /* so popup/tap stay visible */
+  margin: 0 auto;
+  padding: 0 2rem;
+  min-height: 220px;     /* keep some structure but not too tall */
+}
+
+.demoText {
+  max-width: 100% !important;
+  width: 100%;
+  text-align: left;
+  margin: 0; 
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+}
+
+
+
+
+.visualFrame {
+  animation: subtleFloat 6s ease-in-out infinite;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+@keyframes subtleFloat {
+  0%,100% { transform: translateX(6%) translateY(0); }
+  50% { transform: translateX(5%) translateY(-1.5%); }
+}
+
+/* --- DEMO TEXT (constant, readable size) --- */
+.demoText {
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  line-height: 1.9; /* looser spacing between lines */
+  text-align: left;
+  color: var(--text-dark);
+  max-width: 100% !important;
+  width: 100%;
+  margin: 0 auto;
+  letter-spacing: 0.03em; /* slight letter spacing helps readability */
+  animation: none;
+}
+
+
+/* --- TAP PULSE --- */
+/* Starts sooner, faster burst, ends cleanly */
+.tapPulse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(14,165,164,0.75), rgba(124,58,237,0.25));
+  box-shadow: 0 0 18px 6px rgba(14,165,164,0.25);
+  opacity: 0;
+  pointer-events: none;
+  animation: tap-loop 6s ease-in-out infinite;
+}
+
+@keyframes tap-loop {
+  0%, 25% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  28% { opacity: 1; transform: translate(-50%, -50%) scale(1.0); }
+  32% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.4); }
+  38% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
+/* --- POPUP --- */
+/* Appears ~0.4s after tap peak, holds longer, soft fade */
+.definitionCard {
+  animation: def-loop 6s ease-in-out infinite;
+}
+
+@keyframes def-loop {
+  0%, 34% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) scale(0.97);
+  }
+
+  /* Fade in quickly */
+  40% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  /* Fully stable — no motion or fading */
+  40.01%, 68% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  /* Fade out smoothly */
+  75% {
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(4px) scale(0.99);
+  }
+
+  85%, 100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) scale(0.97);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .demoText {
+    padding: 0 1rem;
+  }
+}
+
+
+
+
+
